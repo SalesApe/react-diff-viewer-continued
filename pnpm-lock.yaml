@@ -15,8 +15,8 @@ importers:
         specifier: ^2.3.2
         version: 2.3.2
       diff:
-        specifier: ^5.2.0
-        version: 5.2.0
+        specifier: ^7.0.0
+        version: 7.0.0
       memoize-one:
         specifier: ^6.0.0
         version: 6.0.0
@@ -32,13 +32,10 @@ importers:
         version: 10.0.1(semantic-release@19.0.5)
       '@testing-library/react':
         specifier: ^13.4.0
-        version: 13.4.0(react-dom@18.2.0)(react@18.2.0)
+        version: 13.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@types/diff':
-        specifier: ^5.0.6
-        version: 5.0.6
-      '@types/memoize-one':
-        specifier: ^5.1.2
-        version: 5.1.2
+        specifier: ^6.0.0
+        version: 6.0.0
       '@types/node':
         specifier: ^20.11.17
         version: 20.11.17
@@ -561,15 +558,11 @@ packages:
   '@types/aria-query@5.0.2':
     resolution: {integrity: sha512-PHKZuMN+K5qgKIWhBodXzQslTo5P+K/6LqeKXS6O/4liIDdZqaX5RXrCK++LAw+y/nptN48YmUMFiQHRSWYwtQ==}
 
-  '@types/diff@5.0.6':
-    resolution: {integrity: sha512-OxYeXtiT2eAkK5Js6V6wY+Jb9uKdeSQIXxEZcRBqrE/VBJPMnrmsArARjGjiIulpu13vnpvGf+LLTNyZaJNPuw==}
+  '@types/diff@6.0.0':
+    resolution: {integrity: sha512-dhVCYGv3ZSbzmQaBSagrv1WJ6rXCdkyTcDyoNu1MD8JohI7pR7k8wdZEm+mvdxRKXyHVwckFzWU1vJc+Z29MlA==}
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
-
-  '@types/memoize-one@5.1.2':
-    resolution: {integrity: sha512-9lItlM8Bf1DPvm8p4zE0vUn7YoTktEYgLd6Eva/PT0its200xmhaYrCMG/Y8615/f62SXOrDWMIEPk/xV+DQpw==}
-    deprecated: This is a stub types definition. memoize-one provides its own type definitions, so you do not need this installed.
 
   '@types/minimist@1.2.3':
     resolution: {integrity: sha512-ZYFzrvyWUNhaPomn80dsMNgMeXxNWZBdkuG/hWlUvXvbdUH8ZERNBGXnU87McuGcWDsyzX2aChCv/SVN348k3A==}
@@ -920,8 +913,8 @@ packages:
     resolution: {integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==}
     engines: {node: '>=0.3.1'}
 
-  diff@5.2.0:
-    resolution: {integrity: sha512-uIFDxqpRZGZ6ThOk84hEfqWoHx2devRFvpTZcTHur85vImfaxUbTW9Ryh4CpCuDnToOP1CEtXKIgytHBPVff5A==}
+  diff@7.0.0:
+    resolution: {integrity: sha512-PJWHUb1RFevKCwaFA9RlG5tCd+FO5iRh9A8HEtkmBH2Li03iJriB6m6JIN4rGz3K3JLawI7/veA1xzRKP6ISBw==}
     engines: {node: '>=0.3.1'}
 
   dir-glob@3.0.1:
@@ -2832,7 +2825,7 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/react@13.4.0(react-dom@18.2.0)(react@18.2.0)':
+  '@testing-library/react@13.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.23.2
       '@testing-library/dom': 8.20.1
@@ -2850,13 +2843,9 @@ snapshots:
 
   '@types/aria-query@5.0.2': {}
 
-  '@types/diff@5.0.6': {}
+  '@types/diff@6.0.0': {}
 
   '@types/estree@1.0.5': {}
-
-  '@types/memoize-one@5.1.2':
-    dependencies:
-      memoize-one: 6.0.0
 
   '@types/minimist@1.2.3': {}
 
@@ -3243,7 +3232,7 @@ snapshots:
 
   diff@4.0.2: {}
 
-  diff@5.2.0: {}
+  diff@7.0.0: {}
 
   dir-glob@3.0.1:
     dependencies:
@@ -4521,17 +4510,16 @@ snapshots:
 
   vite@5.1.7(@types/node@20.11.17)(sass@1.70.0):
     dependencies:
-      '@types/node': 20.11.17
       esbuild: 0.19.12
       postcss: 8.4.35
       rollup: 4.10.0
-      sass: 1.70.0
     optionalDependencies:
+      '@types/node': 20.11.17
       fsevents: 2.3.3
+      sass: 1.70.0
 
   vitest@1.2.2(@types/node@20.11.17)(happy-dom@13.3.8)(sass@1.70.0):
     dependencies:
-      '@types/node': 20.11.17
       '@vitest/expect': 1.2.2
       '@vitest/runner': 1.2.2
       '@vitest/snapshot': 1.2.2
@@ -4542,7 +4530,6 @@ snapshots:
       chai: 4.4.1
       debug: 4.3.4
       execa: 8.0.1
-      happy-dom: 13.3.8
       local-pkg: 0.5.0
       magic-string: 0.30.7
       pathe: 1.1.2
@@ -4554,6 +4541,9 @@ snapshots:
       vite: 5.1.7(@types/node@20.11.17)(sass@1.70.0)
       vite-node: 1.2.2(@types/node@20.11.17)(sass@1.70.0)
       why-is-node-running: 2.2.2
+    optionalDependencies:
+      '@types/node': 20.11.17
+      happy-dom: 13.3.8
     transitivePeerDependencies:
       - less
       - lightningcss
