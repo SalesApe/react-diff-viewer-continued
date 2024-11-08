@@ -118,33 +118,39 @@ const computeDiff = (
  * @param oldString Old string to compare.
  * @param newString New string to compare with old string.
  * @param disableWordDiff Flag to enable/disable word diff.
+ * @param compareMethod JsDiff text diff method from https://github.com/kpdecker/jsdiff/tree/v4.0.1#api
  * @param lineCompareMethod JsDiff text diff method from https://github.com/kpdecker/jsdiff/tree/v4.0.1#api
  * @param linesOffset line number to start counting from
  * @param showLines lines that are always shown, regardless of diff
  */
-const computeLineInformation = (
+export const computeLineInformation = (
   oldString: string | Object,
   newString: string | Object,
   disableWordDiff: boolean = false,
-  lineCompareMethod: DiffMethod | ((oldStr: string, newStr: string) => diff.Change[]) = DiffMethod.CHARS,
+  compareMethod: DiffMethod | ((oldStr: string, newStr: string) => diff.Change[]) = DiffMethod.CHARS,
+  lineCompareMethod: undefined | ((oldStr: string | Object, newStr: string | Object) => diff.Change[]) = undefined,
   linesOffset: number = 0,
   showLines: string[] = [],
 ): ComputedLineInformation => {
   let diffArray: Diff.Change[] = [];
 
-  // Use diffLines for strings, and diffJson for objects...
-  if (typeof oldString === 'string' && typeof newString === 'string') {
-    diffArray = diff.diffLines(
-      oldString,
-      newString,
-      {
-        newlineIsToken: false,
-        ignoreWhitespace: false,
-        ignoreCase: false,
-      },
-    );
+  if (typeof lineCompareMethod === 'function') {
+    diffArray = lineCompareMethod(oldString, newString);
   } else {
-    diffArray = diff.diffJson(oldString, newString);
+    // Use diffLines for strings, and diffJson for objects...
+    if (typeof oldString === 'string' && typeof newString === 'string') {
+      diffArray = diff.diffLines(
+        oldString,
+        newString,
+        {
+          newlineIsToken: false,
+          ignoreWhitespace: false,
+          ignoreCase: false,
+        },
+      );
+    } else {
+      diffArray = diff.diffJson(oldString, newString);
+    }
   }
 
   let rightLineNumber = linesOffset;
@@ -223,7 +229,7 @@ const computeLineInformation = (
                     const computedDiff = computeDiff(
                         line,
                         rightValue as string,
-                        lineCompareMethod
+                        compareMethod
                     );
                     right.value = computedDiff.right;
                     left.value = computedDiff.left;
@@ -279,5 +285,3 @@ const computeLineInformation = (
     diffLines,
   };
 };
-
-export { computeLineInformation };
