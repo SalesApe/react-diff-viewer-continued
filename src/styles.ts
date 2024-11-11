@@ -64,6 +64,7 @@ export interface ReactDiffViewerStylesOverride {
     dark?: ReactDiffViewerStylesVariables;
     light?: ReactDiffViewerStylesVariables;
   };
+  summary?: CSSInterpolation;
   diffContainer?: CSSInterpolation;
   diffRemoved?: CSSInterpolation;
   diffAdded?: CSSInterpolation;

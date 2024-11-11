@@ -272,6 +272,7 @@ const defaultStyles = {
       diffViewerTitleBorderColor: '#353846',
     }
   },
+  summary?: {}, // style object
   diffContainer?: {}, // style object
   diffRemoved?: {}, // style object
   diffAdded?: {}, // style object
